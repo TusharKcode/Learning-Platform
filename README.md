@@ -12,10 +12,15 @@
 - 🛠️ Tech Stack
 
 # Frontend: Next.js (App Router) + TypeScript
+
 # Styling: Tailwind CSS + shadcn/ui
+
 # Animations: Framer Motion, Lottie
+
 # State Management: Zustand
+
 # Backend (Planned): Next.js API / Node.js
+
 # Database (Planned): MongoDB
 
 ## 📂 Project Structure
