@@ -4,15 +4,15 @@ import {Button} from "@/components/ui/button"
 import { FaAngular, FaCss3, FaDatabase, FaHtml5, FaJava, FaJs, FaPython, FaReact, FaVuejs } from 'react-icons/fa';
 
 const floatingIcons = [
-    {icon: FaVuejs, x: -135, y: -150},
-    {icon: FaHtml5, x: -200, y: -100},
-    {icon: FaCss3, x: 200, y: -120},
-    {icon: FaAngular, x: 130, y: -90},
-    {icon: FaJs, x: -250, y: 120},
-    {icon: FaDatabase, x: -150, y: 50},
-    {icon: FaReact, x: 250, y: 140},
-    {icon: FaPython, x: 130, y: 130},
-    {icon: FaJava, x: 185, y: 50},
+    {icon: FaVuejs, x: "10%", y: "20%"},
+    {icon: FaHtml5, x: "20%", y: "10%"},
+    {icon: FaCss3, x: "80%", y: "15%"},
+    {icon: FaAngular, x: "70%", y: "25%"},
+    {icon: FaJs, x: "15%", y: "75%"},
+    {icon: FaDatabase, x: "25%", y: "60%"},
+    {icon: FaReact, x: "80%", y: "80%"},
+    {icon: FaPython, x: "70%", y: "75%"},
+    {icon: FaJava, x: "80%", y: "55%"},
 ]
 
 export default function Hero(){
@@ -22,7 +22,7 @@ export default function Hero(){
             <div className='absolute w-[500px] h-[500px] bg-purple-600/30 blur-[120px] rounded-full top-[100px] left-[100px]'/>
             <div className='absolute w-[500px] h-[500px] bg-purple-600/30 blur-[120px] rounded-full bottom-[100px] right-[100px]'/>
 
-            {/*Background glow*/}
+            {/*Icon Container*/}
             {floatingIcons.map((item, index) => {
                 const Icon = item.icon;
                 return (
@@ -31,8 +31,9 @@ export default function Hero(){
                         initial={{opacity:0}}
                         animate={{opacity:0.8}}
                         transition={{duration:1, delay:index*0.2}}
-                        className='absolute text-xl text-white/70'
-                        style={{x: item.x, y: item.y}}
+                        className={`absolute text-2xl sm:text-3xl md:text-4xl text-white/20
+                            ${index > 5 ? "hidden sm:block" : ""}`}
+                        style={{left: item.x, top: item.y, transform: "translate(-50%, -50%)"}}
                     >
                         <motion.div
                             animate={{y:[0, -20, 0]}}
