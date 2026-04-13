@@ -1,5 +1,5 @@
-import Header from "@/components/layout/Header";
 import "./globals.css";
+import Navbar from "@/components/layout/Navbar";
 
 export default function RootLayout({
   children,
@@ -11,7 +11,7 @@ export default function RootLayout({
       lang="en"
     >
       <body className="min-h-screen bg-black text-white flex flex-col">
-        <Header/>
+        <Navbar/>
         {children}
       </body>
     </html>
