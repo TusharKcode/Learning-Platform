@@ -1,6 +1,6 @@
-## 🚀 Learn Platform (30 Days Learning System)
+# 🚀 Learn Platform (30 Days Learning System)
 
-# A modern EdTech platform where users can learn skills in a structured day-wise format (e.g., Learn HTML in 30 Days).
+## A modern EdTech platform where users can learn skills in a structured day-wise format (e.g., Learn HTML in 30 Days).
 
 # ✨ Features
 - 🎯 Core Experince
@@ -8,11 +8,11 @@
     - 🎨 Modern SaaS-style UI with animations
     - 📱 Fully responsive design
 
-- 🎯 UX Enhancements
-    - 📅 Loading Skeletons
-    - 🎨 Network Status detection (Offline + Slow network)
-    - 📱 Error State UI with Retry functionality
-    - Empty State UI for no data scenarios
+- ⚡ UX Enhancements
+    - 🦴 Loading Skeletons
+    - 🌐 Network Status detection (Offline + Slow network)
+    - ❌ Error State UI with Retry functionality
+    - 📭 Empty State UI for no data scenarios
 
 # Tech Stack
 - Frontend
@@ -30,15 +30,17 @@
     - Zustand
 
 ## 📂 Project Structure
-/app → Pages & routing 
-/components → UI components 
-    /sections → Landing page sections 
-    /skeletons → Loading skeleton components 
-    /common → Shared components (Error, Network, Empty state) 
-    /ui → Reusable UI (buttons, skeleton, etc.) 
-/lib → Utilities & helpers 
-/hooks → Custom hooks 
-/store → State management
+```
+    /app → Pages & routing 
+    /components → UI components 
+        /sections → Landing page sections 
+        /skeletons → Loading skeleton components 
+        /common → Shared components (Error, Network, Empty state) 
+        /ui → Reusable UI (buttons, skeleton, etc.) 
+    /lib → Utilities & helpers 
+    /hooks → Custom hooks 
+    /store → State management
+```
 
 ## 🚀 Getting Started
 - npm install
