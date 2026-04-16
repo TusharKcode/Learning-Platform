@@ -9,6 +9,7 @@ import {
     DropdownMenuTrigger 
 } from '@/components/ui/dropdown-menu';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Navbar(){
 
@@ -28,12 +29,12 @@ export default function Navbar(){
 
                 {/* Desktop Menu */}
                 <div className='hidden md:flex items-center gap-6'>
-                    <a href="#" className='text-sm hover:text-indigo-400 transition'>
+                    <Link href="/" className='text-sm hover:text-indigo-400 transition'>
                         Home
-                    </a>
-                    <a href="#" className='text-sm hover:text-indigo-400 transition'>
+                    </Link>
+                    <Link href="/courses" className='text-sm hover:text-indigo-400 transition'>
                         Courses
-                    </a>
+                    </Link>
 
                     {/* Language Selector */}
                     <DropdownMenu>
@@ -71,8 +72,8 @@ export default function Navbar(){
             animate={{ opacity: 1, y: 0 }}
             className="md:hidden px-4 pb-4 space-y-4 bg-black/80 backdrop-blur-md"
         >
-            <a href="#" className="block text-sm">Home</a>
-            <a href="#" className="block text-sm">Courses</a>
+            <Link href="/" className="block text-sm">Home</Link>
+            <Link href="/courses" className="block text-sm">Courses</Link>
 
             <div className="flex items-center gap-2">
             <Globe size={16} />
