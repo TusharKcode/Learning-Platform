@@ -11,7 +11,7 @@ export default function CourseSearch() {
 
     const [query, setQuery] = useState("")
     const filteredCourses = courses.filter((course) => 
-        course.title.toLowerCase().includes(query.toLowerCase())
+        course.category.toLowerCase().includes(query.toLowerCase())
     )
 
     return (
@@ -24,8 +24,8 @@ export default function CourseSearch() {
                     className="text-gray-400"
                 />
                 <Input
-                    placeholder="bg-transparent border-none focus-visible:ring-0 text-white"
-                    className="Search Courses....."
+                    placeholder="Search Courses...."
+                    className="bg-transparent border-none focus-visible:ring-0 text-white"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                 />
@@ -45,7 +45,7 @@ export default function CourseSearch() {
                                 key={course.id}
                                 className="px-4 py-2 hover:bg-white/10 cursor-pointer text-sm"
                             >
-                                {course.title}
+                                {course.category}
                             </div>
                         ))}
                     </motion.div>
