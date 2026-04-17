@@ -1,4 +1,4 @@
-import CourseCard from '@/components/courses/CourseCard';
+import CourseCarousel from '@/components/courses/CourseCarousel';
 import CourseHeader from '@/components/courses/CourseHeader'
 import CourseSearch from '@/components/courses/CourseSearch'
 
@@ -8,34 +8,54 @@ const demoCourses = [
         category: "HTML",
         duration: "30 Days",
         level: "Beginner",
+        thumbnail: "/images/html.jpg",
+        rating: 4.6,
+        progress: 40,
     },
     {
         title: "CSS Mastery",
         category: "CSS",
         duration: "25 Days",
         level: "Intermediate",
+        thumbnail: "/images/css.jpg",
+        rating: 4.7,
     },
     {
         title: "JavaScript Basics",
         category: "JavaScript",
         duration: "40 Days",
         level: "Beginner",
+        thumbnail: "/images/js.jpg",
+        rating: 4.5,
     },
 ];
 
 export default function CoursesPage() {
     return (
         <main className='bg-black min-h-screen text-white'>
+
             <CourseHeader/>
-            <div className='px-6'>
-                <h1 className='text-2xl font-bold mb-6'>Explore Courses</h1>
+
+            <div className='px-4 sm:px-6 mt-6'>
+                <h1 className='text-2xl sm:text-3xl font-bold mb-6'>Explore Courses</h1>
+                <CourseSearch/>
             </div>
-            <CourseSearch/>
-            <br />
-            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
-                {demoCourses.map((course, index) => (
-                    <CourseCard key={index} {...course}/>
-                ))}
+
+            <div className='mt-10 space-y-10'>
+                <CourseCarousel
+                    title='Popular Courses'
+                    courses={demoCourses}
+                />
+
+                <CourseCarousel
+                    title='Continue learning'
+                    courses={demoCourses}
+                />
+
+                <CourseCarousel
+                    title='New Courses'
+                    courses={demoCourses}
+                />
             </div>
         </main>
     )
