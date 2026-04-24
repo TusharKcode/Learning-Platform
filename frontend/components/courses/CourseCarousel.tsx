@@ -8,6 +8,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 interface Course{
     title: string,
     category: string,
+    slug: string,
     duration: string,
     level: string,
     thumbnail: string,

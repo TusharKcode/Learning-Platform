@@ -10,6 +10,7 @@ import Link from "next/link"
 interface CourseCardProps{
     title: string,
     category: string,
+    slug: string,
     duration: string,
     level: string,
     thumbnail: string,
@@ -20,6 +21,7 @@ interface CourseCardProps{
 export default function CourseCard({
     title,
     category,
+    slug,
     duration,
     level,
     thumbnail,
@@ -30,10 +32,11 @@ export default function CourseCard({
     const [loading, setLoading] = useState(true)
 
     return (
-        <motion.div
-            whileHover={{y: -6}}
-            className="group relative bg-black/60 border border-white/10 rounded-xl backdrop-blur-md transition overflow-hidden"
-        >
+        <Link href={`/courses/${slug}`} className="block h-full">
+            <motion.div
+                whileHover={{y: -6}}
+                className="group relative bg-black/60 border border-white/10 rounded-xl backdrop-blur-md transition overflow-hidden h-full"
+            >
 
             <div className="relative w-full h-40">
                 {loading && (
@@ -69,12 +72,11 @@ export default function CourseCard({
                     <span>{level}</span>
                 </div>
 
-                <Link href={`/courses/${category.toLowerCase()}`}>
-                    <Button className="w-full mt-4 bg-gradient-to-r from-indigo-500 to-purple-600">
-                        Start Learning
-                    </Button>    
-                </Link>
+                <Button className="w-full mt-4 bg-gradient-to-r from-indigo-500 to-purple-600">
+                    Explore Content
+                </Button>    
             </div>
-        </motion.div>
+            </motion.div>
+        </Link>
     )
 }

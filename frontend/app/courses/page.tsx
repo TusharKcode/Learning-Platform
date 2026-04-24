@@ -6,6 +6,7 @@ const demoCourses = [
     {
         title: "HTML in 30 Days",
         category: "HTML",
+        slug: "html",
         duration: "30 Days",
         level: "Beginner",
         thumbnail: "/images/html.jpg",
@@ -14,6 +15,7 @@ const demoCourses = [
     {
         title: "CSS Mastery",
         category: "CSS",
+        slug: "css",
         duration: "25 Days",
         level: "Intermediate",
         thumbnail: "/images/css.jpg",
@@ -22,6 +24,7 @@ const demoCourses = [
     {
         title: "JavaScript Basics",
         category: "JavaScript",
+        slug: "javascript",
         duration: "40 Days",
         level: "Beginner",
         thumbnail: "/images/js.jpg",

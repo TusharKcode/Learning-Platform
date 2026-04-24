@@ -2,11 +2,9 @@
 
 import About from "@/components/sections/About";
 import FAQs from "@/components/sections/FAQs";
-import Footer from "@/components/sections/Footer";
 import Hero from "@/components/sections/Hero";
 import AboutSkeleton from "@/components/skeletons/AboutSkeleton";
 import FAQskeleton from "@/components/skeletons/FAQskeleton";
-import FooterSkeleton from "@/components/skeletons/FooterSkeleton";
 import HeroSkeleton from "@/components/skeletons/HeroSkeleton";
 import ErrorState from "@/components/common/ErrorState";
 import { useEffect, useState } from "react";
@@ -29,7 +27,6 @@ export default function Home() {
         <HeroSkeleton/>
         <AboutSkeleton/>
         <FAQskeleton/>
-        <FooterSkeleton/>
       </>
     )
   }
@@ -50,7 +47,6 @@ export default function Home() {
       <Hero/>
       <About/>
       <FAQs/>
-      <Footer/>
     </main>
   );
 }
