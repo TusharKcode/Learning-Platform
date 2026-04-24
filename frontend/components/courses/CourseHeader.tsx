@@ -1,7 +1,7 @@
 "use client"
 
 import {motion} from "framer-motion"
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 
 const categories = [
     "HTML", "CSS", "JavaScript", "SQL", "Python", "Java", "React", "Angular", "Vue",
