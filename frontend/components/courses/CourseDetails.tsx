@@ -5,6 +5,7 @@ import {Button} from "@/components/ui/button"
 import Image from "next/image"
 import { Star, Users } from "lucide-react"
 import { useState } from "react"
+import CourseCarousel from "./CourseCarousel"
 
 type CourseDetailsType = {
     title: string
@@ -26,8 +27,11 @@ export default function CourseDetails({data} : {data? : CourseDetailsType}) {
 
     if(!data){
         return(
-            <div className="text-center py-20 text-gray-400">
-                Course not found
+            <div className="text-center py-20">
+                <h2 className="text-lg font-semibold text-white">Course not found</h2>
+                <p className="text-gray-400 text-sm mt-2">
+                    This course may not exist or is under development.
+                </p>
             </div>
         )
     }
@@ -35,9 +39,9 @@ export default function CourseDetails({data} : {data? : CourseDetailsType}) {
     return (
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
             {/* Hero */}
-            <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="grid md:grid-cols-2 gap-10 items-center">
 
-                <div className="relative w-full h-64 md:h-80 rounded-xl overflow-hidden">
+                <div className="relative w-full h-64 md:h-80 rounded-xl overflow-hidden border border-white/10">
                     <Image
                         src={data.thumbnail}
                         alt={data.title}
@@ -73,25 +77,31 @@ export default function CourseDetails({data} : {data? : CourseDetailsType}) {
                         <span>{data.level}</span>
                     </div>
 
-                    <Button className="mt-6 bg-gradient-to-r from-indigo-500 to-purple-600">
+                    <Button className="mt-6 px-6 py-2 text-sm bg-gradient-to-r from-indigo-500 to-purple-600 hover:opacity-90 transition">
                         Start Course
                     </Button>
                 </div>
             </div>
 
             {/* Tabs */}
-            <div className="mt-10 border border-white/10 flex gap-6 text-sm">
+            <div className="mt-10 flex gap-6 text-sm border-b border-white/10">
                 {["overview", "curriculum", "certificate"].map((t) => (
                     <button
                         key={t}
                         onClick={() => setTab(t)}
-                        className={`pb-2 capitalize transition ${
+                        className={`pb-3 capitalize transition relative ${
                             tab === t
-                                ? "text-white border-b-2 border-indigo-500"
-                                : "text-gray-400"
+                                ? "text-white"
+                                : "text-gray-400 hover:text-white"
                         }`}
                     >
                         {t}
+                        {tab === t && (
+                            <motion.div
+                                layoutId="underline"
+                                className="absolute left-0 bottom-0 h-[2px] w-full bg-indigo-500"
+                            />
+                        )}
                     </button>
                 ))}
             </div>
@@ -156,6 +166,10 @@ export default function CourseDetails({data} : {data? : CourseDetailsType}) {
                     </motion.div>
                 )}
             </div>
+            {/* <div className="mt-16">
+                <h2 className="text-xl font-semibold mb-4">Related Courses</h2>
+                <CourseCarousel title=""/>
+            </div> */}
         </div>
     )
 }

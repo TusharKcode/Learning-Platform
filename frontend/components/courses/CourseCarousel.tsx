@@ -21,7 +21,6 @@ interface Props{
     courses: Course[]
 }
 
-
 export default function CourseCarousel({title, courses}: Props) {
     const scrollRef = useRef<HTMLDivElement>(null)
     const scroll = (dir : "left" | "right") => {
@@ -36,7 +35,7 @@ export default function CourseCarousel({title, courses}: Props) {
         <div className="w-full relative">
             <div className="flex items-center justify-between px-4 mb-3">
                 <h2 className="text-xl font-bold">{title}</h2>
-                <div className="flex gpa-2">
+                <div className="flex gap-2">
                     <button onClick={() => scroll("left")} className="p-2 bg-white/10 rounded-full hover:bg-white/20">
                         <ChevronLeft size={18}/>
                     </button>
