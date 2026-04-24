@@ -10,7 +10,6 @@ const demoCourses = [
         level: "Beginner",
         thumbnail: "/images/html.jpg",
         rating: 4.6,
-        progress: 40,
     },
     {
         title: "CSS Mastery",
@@ -32,7 +31,7 @@ const demoCourses = [
 
 export default function CoursesPage() {
     return (
-        <main className='bg-black min-h-screen text-white'>
+        <main className='flex-1'>
 
             <CourseHeader/>
 
@@ -44,11 +43,6 @@ export default function CoursesPage() {
             <div className='mt-10 space-y-10'>
                 <CourseCarousel
                     title='Popular Courses'
-                    courses={demoCourses}
-                />
-
-                <CourseCarousel
-                    title='Continue learning'
                     courses={demoCourses}
                 />
 

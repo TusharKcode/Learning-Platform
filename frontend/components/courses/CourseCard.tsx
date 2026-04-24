@@ -4,6 +4,8 @@ import {motion} from "framer-motion"
 import {Button} from "@/components/ui/button"
 import Image from "next/image"
 import { Star } from "lucide-react"
+import { useState } from "react"
+import Link from "next/link"
 
 interface CourseCardProps{
     title: string,
@@ -24,29 +26,36 @@ export default function CourseCard({
     rating = 4.5,
     progress
 }: CourseCardProps) {
+
+    const [loading, setLoading] = useState(true)
+
     return (
         <motion.div
             whileHover={{y: -6}}
             className="group relative bg-black/60 border border-white/10 rounded-xl backdrop-blur-md transition overflow-hidden"
         >
 
-            <div className="relative w-full h-40 overflow-hidden">
+            <div className="relative w-full h-40">
+                {loading && (
+                    <div className="absolute inset-0 bg-white/10 animate-pulse"/>
+                )}
                 <Image
                     src={thumbnail}
                     alt={title}
                     fill
-                    className="object-cover group-hover:scale-115 transition duration-300"
+                    onLoad={() => setLoading(false)}
+                    className="object-cover group-hover:scale-105 transition duration-300"
                 />
             </div>
 
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-r from-indigo-500/10 to-purple-500/10"/>
 
-            <div className="relative z-10 p-4">
+            <div className="p-4">
                 <span className="text-xs text-indigo-400 font-medium">
                     {category}
                 </span>
 
-                <h3 className="mt-1 text-base font-semibold text-white line-clamp-2">
+                <h3 className="mt-1 text-base font-semibold line-clamp-2">
                     {title}
                 </h3>
 
@@ -60,23 +69,11 @@ export default function CourseCard({
                     <span>{level}</span>
                 </div>
 
-                {progress !== undefined && (
-                    <div className="mt-3">
-                        <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
-                            <div 
-                                className="h-full bg-gradient-to-r from-indigo-500 to-purple-600"
-                                style={{width: `${progress}%`}}
-                            />
-                        </div>
-                        <span className="text-xs text-gray-400 mt-1 inline-block">
-                            {progress}% completed
-                        </span>
-                    </div>
-                )}
-
-                <Button className="w-full mt-4 hover:opacity-90 transition bg-gradient-to-r from-indigo-500 to-purple-600">
-                    {progress ? "Continue" : "Start Learning"}
-                </Button>    
+                <Link href={`/courses/${category.toLowerCase()}`}>
+                    <Button className="w-full mt-4 bg-gradient-to-r from-indigo-500 to-purple-600">
+                        Start Learning
+                    </Button>    
+                </Link>
             </div>
         </motion.div>
     )

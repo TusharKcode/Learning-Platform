@@ -4,14 +4,17 @@ import { courses } from "@/lib/data/courses"
 import { Input } from "@base-ui/react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Search } from "lucide-react"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 
 
 export default function CourseSearch() {
 
+    const router = useRouter()
     const [query, setQuery] = useState("")
     const filteredCourses = courses.filter((course) => 
-        course.category.toLowerCase().includes(query.toLowerCase())
+        course.category.toLowerCase().includes(query.toLowerCase()) ||
+        course.title.toLowerCase().includes(query.toLowerCase())
     )
 
     return (
@@ -49,6 +52,7 @@ export default function CourseSearch() {
                             filteredCourses.slice(0,6).map((course) => (
                                 <div
                                     key={course.id}
+                                    onClick={() => router.push(`/courses/${course.category.toLowerCase()}`)}
                                     className="px-4 py-3 flex items-center justify-between hover:bg-white/10 cursor-pointer transition"
                                 >
                                     <span className="text-sm">{course.title}</span>
