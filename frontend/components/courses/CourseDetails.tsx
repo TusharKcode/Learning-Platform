@@ -5,7 +5,7 @@ import {Button} from "@/components/ui/button"
 import Image from "next/image"
 import { Star, Users } from "lucide-react"
 import { useState } from "react"
-import CourseCarousel from "./CourseCarousel"
+// import CourseCarousel from "./CourseCarousel"
 
 type CourseDetailsType = {
     title: string
