@@ -5,6 +5,7 @@ import {Button} from "@/components/ui/button"
 import Image from "next/image"
 import { Star, Users } from "lucide-react"
 import { useState } from "react"
+import Link from "next/link"
 // import CourseCarousel from "./CourseCarousel"
 
 type CourseDetailsType = {
@@ -77,9 +78,11 @@ export default function CourseDetails({data} : {data? : CourseDetailsType}) {
                         <span>{data.level}</span>
                     </div>
 
-                    <Button className="mt-6 px-6 py-2 text-sm bg-gradient-to-r from-indigo-500 to-purple-600 hover:opacity-90 transition">
-                        Start Course
-                    </Button>
+                    <Link href={`/courses/${data.category.toLowerCase()}/learn`}>
+                        <Button className="mt-6 px-6 py-2 text-sm bg-gradient-to-r from-indigo-500 to-purple-600 hover:opacity-90 transition">
+                            Start Course
+                        </Button>
+                    </Link>
                 </div>
             </div>
 
